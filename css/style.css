@@ -189,8 +189,13 @@ a:hover {
     color: var(--color-primary);
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
     width: 100%;
+}
+
+.nav-link.active {
+    color: var(--color-primary);
 }
 
 .nav-toggle {
@@ -288,6 +293,44 @@ a:hover {
     display: flex;
     gap: var(--spacing-sm);
     flex-wrap: wrap;
+}
+
+/* Academic Profile Badges */
+.academic-profiles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+}
+
+.profile-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.5rem 1rem;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    transition: var(--transition);
+}
+
+.profile-badge:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+.profile-badge.orcid:hover {
+    border-color: #a6ce39;
+    color: #a6ce39;
+}
+
+.profile-badge.repec:hover {
+    border-color: #2a5885;
+    color: #2a5885;
 }
 
 .hero-image {
@@ -517,6 +560,7 @@ a:hover {
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
     border-left: 4px solid transparent;
+    position: relative;
 }
 
 .paper:hover {
@@ -525,9 +569,62 @@ a:hover {
     transform: translateX(5px);
 }
 
+/* Paper Status Badges */
+.paper-status {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 50px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.paper-status.published {
+    background: #d4edda;
+    color: #155724;
+}
+
+.paper-status.rr {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.paper-status.submitted {
+    background: #cce5ff;
+    color: #004085;
+}
+
+.paper-status.wip {
+    background: #e2e3e5;
+    color: #383d41;
+}
+
 .paper-title {
     font-family: var(--font-heading);
     font-size: 1.25rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.paper-authors {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.25rem;
+}
+
+.coauthor-link {
+    color: var(--color-accent);
+    font-weight: 500;
+}
+
+.coauthor-link:hover {
+    text-decoration: underline;
+}
+
+.paper-venue {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
     margin-bottom: var(--spacing-xs);
 }
 
@@ -539,19 +636,34 @@ a:hover {
 
 .paper-links {
     display: flex;
+    flex-wrap: wrap;
     gap: var(--spacing-sm);
 }
 
 .paper-link {
-    font-size: 0.875rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
     font-weight: 500;
     color: var(--color-accent);
-    padding: 0.25rem 0;
-    border-bottom: 1px dashed var(--color-accent);
+    padding: 0.375rem 0.75rem;
+    background: rgba(233, 69, 96, 0.08);
+    border-radius: 4px;
+    transition: var(--transition);
 }
 
 .paper-link:hover {
-    border-bottom-style: solid;
+    background: var(--color-accent);
+    color: white;
+}
+
+.paper-link svg {
+    flex-shrink: 0;
+}
+
+.research-category + .research-category {
+    margin-top: var(--spacing-lg);
 }
 
 /* ==========================================
@@ -594,15 +706,50 @@ a:hover {
     color: white;
 }
 
+.teaching-intro {
+    max-width: 700px;
+    margin-bottom: var(--spacing-md);
+}
+
+.teaching-intro p {
+    color: var(--color-text-light);
+    margin: 0;
+}
+
 .course-card h4 {
     font-family: var(--font-body);
+    margin-bottom: 0.25rem;
+}
+
+.course-level {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent);
     margin-bottom: var(--spacing-xs);
 }
 
 .course-card p {
     font-size: 0.9rem;
     color: var(--color-text-muted);
-    margin: 0;
+    margin: 0 0 var(--spacing-sm) 0;
+}
+
+.course-syllabus {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    padding: 0.375rem 0.75rem;
+    border: 1px solid var(--color-accent);
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.course-syllabus:hover {
+    background: var(--color-accent);
+    color: white;
 }
 
 /* ==========================================
@@ -683,6 +830,10 @@ a:hover {
     margin-bottom: var(--spacing-md);
 }
 
+.cv-buttons {
+    margin-bottom: var(--spacing-sm);
+}
+
 .cv .btn-primary {
     background: white;
     color: var(--color-primary);
@@ -691,6 +842,12 @@ a:hover {
 .cv .btn-primary:hover {
     background: var(--color-accent);
     color: white;
+}
+
+.cv-updated {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
 }
 
 /* ==========================================
@@ -768,6 +925,48 @@ a:hover {
     transform: translateY(-3px);
 }
 
+/* Contact Profile Links */
+.contact-profiles {
+    flex: 1;
+}
+
+.contact-profiles h4 {
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text);
+}
+
+.profile-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.profile-link-item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: 0.625rem 1rem;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    transition: var(--transition);
+}
+
+.profile-link-item:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: translateX(5px);
+}
+
+.profile-link-item svg {
+    flex-shrink: 0;
+}
+
 /* ==========================================
    Footer
    ========================================== */
@@ -777,6 +976,21 @@ a:hover {
     padding: var(--spacing-md) 0;
     text-align: center;
     font-size: 0.875rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content p {
+    margin: 0;
+}
+
+.footer-domain {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* ==========================================
@@ -797,6 +1011,10 @@ a:hover {
         justify-content: center;
     }
 
+    .academic-profiles {
+        justify-content: center;
+    }
+
     .hero-cta {
         justify-content: center;
     }
@@ -812,6 +1030,11 @@ a:hover {
 
     .about-content {
         grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: var(--spacing-xs);
     }
 }
 
@@ -863,6 +1086,16 @@ a:hover {
 
     .contact-content {
         flex-direction: column;
+    }
+
+    .profile-links {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .paper-links {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 
