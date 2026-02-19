@@ -594,6 +594,11 @@ a:hover {
     color: #155724;
 }
 
+.paper-status.forthcoming {
+    background: #e8daef;
+    color: #6c3483;
+}
+
 .paper-status.rr {
     background: #fff3cd;
     color: #856404;
