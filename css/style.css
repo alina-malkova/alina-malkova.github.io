@@ -675,6 +675,100 @@ a:hover {
     flex-shrink: 0;
 }
 
+/* Featured Paper with Infographic */
+.paper-featured {
+    border-left-color: var(--color-accent);
+}
+
+/* Expandable Paper Styles */
+.paper-expandable .paper-title-clickable {
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spacing-sm);
+}
+
+.paper-expand-icon {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--color-bg-alt);
+    color: var(--color-accent);
+    transition: var(--transition);
+    margin-top: 4px;
+}
+
+.paper-expandable .paper-title-clickable:hover .paper-expand-icon {
+    background: var(--color-accent);
+    color: white;
+}
+
+.paper-expandable.expanded .paper-expand-icon {
+    transform: rotate(180deg);
+}
+
+.paper-expandable-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.3s ease;
+    margin-top: 0;
+}
+
+.paper-expandable.expanded .paper-expandable-content {
+    max-height: 2000px;
+    opacity: 1;
+    margin-top: var(--spacing-md);
+}
+
+.paper-abstract {
+    background: var(--color-bg-alt);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-md);
+    border-left: 3px solid var(--color-accent);
+}
+
+.paper-abstract h5 {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-xs);
+}
+
+.paper-abstract p {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin: 0;
+}
+
+.paper-infographic {
+    margin: var(--spacing-md) 0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.paper-infographic img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: var(--transition);
+}
+
+.paper-infographic img:hover {
+    transform: scale(1.02);
+}
+
 .research-category + .research-category {
     margin-top: var(--spacing-lg);
 }

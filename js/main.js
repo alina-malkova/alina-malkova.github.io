@@ -100,3 +100,15 @@ window.addEventListener('scroll', () => {
 // Console greeting
 console.log('%c Welcome to Alina Malkova\'s Academic Website ',
     'background: linear-gradient(135deg, #e94560, #ff6b6b); color: white; padding: 10px 20px; border-radius: 5px; font-size: 14px;');
+
+// Expandable paper abstracts
+document.querySelectorAll('.paper-expandable').forEach(paper => {
+    const title = paper.querySelector('.paper-title-clickable');
+    if (title) {
+        title.addEventListener('click', (e) => {
+            // Don't toggle if clicking on a link inside the title
+            if (e.target.tagName === 'A') return;
+            paper.classList.toggle('expanded');
+        });
+    }
+});
