@@ -333,6 +333,16 @@ a:hover {
     color: #2a5885;
 }
 
+.profile-badge.twitter:hover {
+    border-color: #000;
+    color: #000;
+}
+
+.profile-badge.bluesky:hover {
+    border-color: #0085ff;
+    color: #0085ff;
+}
+
 .hero-image {
     display: flex;
     justify-content: center;
